@@ -1,4 +1,4 @@
-package com.visualnuts.exercise2.repository;
+package com.visualnuts.exercise2.controller;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import com.visualnuts.exercise2.api.service.CountryService;
 
 @RestController
 @RequestMapping("countries")
-public class CountriesRepository {
+public class CountriesController {
 
 	@Autowired
 	private CountryService countryService;
