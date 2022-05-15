@@ -7,14 +7,20 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.visualnuts.exercise2.api.CountriesRequest;
 import com.visualnuts.exercise2.api.CountriesResponse;
+import com.visualnuts.exercise2.exception.CountryServiceException;
 
 @Service
 public class CountryService {
 
-	public CountriesResponse checkLanguages(List<CountriesRequest> request) {
+	public CountriesResponse checkLanguages(List<CountriesRequest> request) throws CountryServiceException {
+		
+		if (CollectionUtils.isEmpty(request)) {
+			throw new CountryServiceException("No countries informed");
+		}
 		
 		CountriesResponse response = new CountriesResponse();
 		response.setTotalCountries(checkTotalCountries(request));

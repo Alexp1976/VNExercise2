@@ -2,21 +2,19 @@ package com.visualnuts.exercise2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.visualnuts.exercise2.api.CountriesRequest;
 import com.visualnuts.exercise2.api.CountriesResponse;
 import com.visualnuts.exercise2.api.service.CountryService;
+import com.visualnuts.exercise2.exception.CountryServiceException;
 
 @SpringBootTest
 class Exercise2ApplicationTests {
@@ -42,7 +40,7 @@ class Exercise2ApplicationTests {
 	}
 	
 	@Test
-	void returnNumberOfCountries() {
+	void returnNumberOfCountries() throws CountryServiceException {
 		
 		CountriesResponse response = countryService.checkLanguages(mockedData);
 		
